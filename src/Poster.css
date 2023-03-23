@@ -3,6 +3,11 @@
     border: 3px solid black;
     padding: 10px;
   }
+  .poster:hover {
+    background-color: lavender;
+    cursor: pointer;
+  }
+
   img {
     margin-top: 1vh;
     width: 20vw;
