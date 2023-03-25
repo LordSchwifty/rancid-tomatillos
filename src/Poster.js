@@ -2,9 +2,9 @@ import React from 'react';
 import './Poster.css';
 import movieData from "./movieData"
 
-const Poster = ({ title, img1, rating, releaseDate }) => {
+const Poster = ({ title, img1, rating, releaseDate, id, selectPoster }) => {
     return (
-        <div className='poster'>
+        <div className='poster' onClick ={() => selectPoster(id)}>
             <h3>{title}</h3>
             <img src={img1}></img>
             <p>{rating.toFixed()}/10</p>

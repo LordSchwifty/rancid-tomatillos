@@ -3,9 +3,9 @@ import "./SelectedMovie.css";
 
 
 const SelectedMovie = ({movieInfo, selectPoster, id}) => {
-    // console.log('titlee', individualInfo.individualInfo.title)
+    console.log('title', movieInfo)
     return (
-        <div>Hello
+        <div className="selected-movie-container">
             <p>{movieInfo.title}</p>
             <img src={movieInfo.poster_path}></img>
             <img src={movieInfo.backdrop_path}></img>
