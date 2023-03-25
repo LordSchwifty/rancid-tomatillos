@@ -15,11 +15,16 @@ class App extends Component {
     this.state = {
       movies: movieData.movies,
       movie: "",
+      error: "",
 
     }
   }
 componentDidMount() {
   fetchMovies()
+  .catch((error) => {
+    console.error(error.message)
+    this.setState({error: error.message})
+  })
   .then((data) => {
     movieList = data.movies;
   })
@@ -34,6 +39,10 @@ componentDidMount() {
 
   selectPoster = (id) => {
     fetchMovieDetails(id)
+    .catch((error) => {
+      console.error(error.message)
+      this.setState({error: error.message})
+    })
     .then((data) => {
       movieDetails = data;
     })
@@ -51,13 +60,12 @@ componentDidMount() {
   render(){
   return (
     <div className="App">
-      <header className="App-header">
         <h1>Rancid Tomatillos</h1>
+        <div>{this.state.error}</div>
         {/* <Movie movieData={this.state.movies}/> */}
         {/* {this.state.movie && <h2>{this.state.movie}</h2>} */}
         {/* <SelectedMovie movieInfo={this.state.movie} selectPoster={this.selectPoster}/> */}
         {this.state.movie ? <SelectedMovie movieInfo={this.state.movie} homeButton={this.homeButton}/> :  <Movie movieData={this.state.movies} selectPoster={this.selectPoster}/>}
-      </header>
     </div>
   );
 }
