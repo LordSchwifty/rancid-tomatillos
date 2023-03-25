@@ -18,6 +18,10 @@ class App extends Component {
     }
   }
 
+//First step is to be able to click on a movie
+//render the information of the clicked movie
+//unrender all other movies
+
   selectPoster = (id) => {
     console.log('this is id', id)
     {this.state.movie ?  this.setState({movie: ""}):  this.setState({movie: movieIndiv.movie})}
@@ -29,7 +33,9 @@ class App extends Component {
     <div className="App">
       <header className="App-header">
         <h1>Rancid Tomatillos</h1>
-        {/* <Movie movies={this.state.movies}/> */}
+        {/* <Movie movieData={this.state.movies}/> */}
+        {/* {this.state.movie && <h2>{this.state.movie}</h2>} */}
+        {/* <SelectedMovie movieInfo={this.state.movie} selectPoster={this.selectPoster}/> */}
         {this.state.movie ? <SelectedMovie movieInfo={this.state.movie} selectPoster={this.selectPoster}/> :  <Movie movieData={this.state.movies} selectPoster={this.selectPoster}/>}
       </header>
     </div>
