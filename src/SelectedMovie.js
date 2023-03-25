@@ -2,7 +2,7 @@ import React from "react";
 import "./SelectedMovie.css";
 
 
-const SelectedMovie = ({movieInfo, selectPoster, id}) => {
+const SelectedMovie = ({movieInfo, homeButton}) => {
     console.log('title', movieInfo)
     return (
         <div className="selected-movie-container">
@@ -17,7 +17,7 @@ const SelectedMovie = ({movieInfo, selectPoster, id}) => {
             <p>{movieInfo.revenew}</p>
             <p>{movieInfo.runtime}</p>
             <p>{movieInfo.tagline}</p>
-            <button onClick = {() => selectPoster(id)}>GO BACK HOME</button>
+            <button onClick = {() => homeButton()}>GO BACK HOME</button>
         </div>
     )
 }
