@@ -62,9 +62,6 @@ componentDidMount() {
     <div className="App">
         <h1>Rancid Tomatillos</h1>
         <div>{this.state.error}</div>
-        {/* <Movie movieData={this.state.movies}/> */}
-        {/* {this.state.movie && <h2>{this.state.movie}</h2>} */}
-        {/* <SelectedMovie movieInfo={this.state.movie} selectPoster={this.selectPoster}/> */}
         {this.state.movie ? <SelectedMovie movieInfo={this.state.movie} homeButton={this.homeButton}/> :  <Movie movieData={this.state.movies} selectPoster={this.selectPoster}/>}
     </div>
   );
