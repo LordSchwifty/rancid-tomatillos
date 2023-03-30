@@ -5,7 +5,7 @@ import './Movie.css';
 
 const Movie = ({ movieData, selectPoster }) => {
     const moviePoster = movieData.map(movie => {
-        console.log("movie id", movie.id)
+        // console.log("movie id", movieData)
         return (
             <Poster 
             id={movie.id}
