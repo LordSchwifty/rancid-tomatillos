@@ -37,36 +37,13 @@ componentDidMount() {
 
 
 
-  selectPoster = (id) => {
-    fetchMovieDetails(id)
-    .catch((error) => {
-      console.error(error.message)
-      this.setState({error: error.message})
-    })
-    .then((data) => {
-      movieDetails = data;
-    })
-    .then(() => {
-      this.setState({ movie: movieDetails.movie})
-    })
-  
-    // console.log('this is id', id)
-    // {this.state.movie ?  this.setState({movie: ""}):  this.setState({movie: movieIndiv.movie})}
-  }
-  homeButton = () => {
-    this.setState({ movie: ""});
-  }
-
   render(){
   return (
     <div className="App">
         <h1>Rancid Tomatillos</h1>
         <Route exact path="/" render={() => <Movie movieData={this.state.movies} error={this.state.error}/>}/>
         <Route exact path="/:id" render={({match}) => {
-         const movieRender = this.state.movies.find(render => render.id === parseInt(match.params.id))
-         console.log('this is the url id', match.params.id)
-        
-         return <SelectedMovie {...movieRender} />
+         return <SelectedMovie id={match.params.id} />
         }}
         />
     </div>
