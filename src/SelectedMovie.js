@@ -1,26 +1,60 @@
-import React from "react";
+import React, { Component } from "react";
 import "./SelectedMovie.css";
+import { Link}  from 'react-router-dom'
+import { fetchMovieDetails } from "../src/apiCalls"
 
 
-const SelectedMovie = ({movieInfo, homeButton}) => {
-    console.log('title', movieInfo)
-    return (
-        <div className="selected-movie-container">
-            <p>{movieInfo.title}</p>
-            <img src={movieInfo.poster_path}></img>
-            <img src={movieInfo.backdrop_path}></img>
-            <p>{movieInfo.release_date}</p>
-            <p>{movieInfo.overview}</p>
-            <p>{movieInfo.average_rating}</p>
-            <p>{movieInfo.genres}</p>
-            <p>{movieInfo.budget}</p>
-            <p>{movieInfo.revenew}</p>
-            <p>{movieInfo.runtime}</p>
-            <p>{movieInfo.tagline}</p>
-            <button onClick = {() => homeButton()}>GO BACK HOME</button>
-        </div>
-    )
-}
+let singleDetails;
 
+  class SelectedMovie extends Component {
+    
+    constructor() {
+      super();
+      this.state = {
+        singleMovie: "",
+        error: "",
+      };
+    }
+    
+    componentDidMount() {
+      fetchMovieDetails(this.props.id)
+      .catch((error) => {
+        console.error(error.message);
+        this.setState({ error: error.message });
+      })
+      .then((data) => {
+        singleDetails = data;
+      })
+      .then(() => {
+        this.setState({ singleMovie: singleDetails.movie });
+      })
+    }
+    render () {
+        let findSingleMovie;
+        if(this.state.singleMovie){
+         findSingleMovie = 
 
+           <div className="information">
+             <h3>{this.state.singleMovie.title}</h3>
+             <p>{this.state.singleMovie.tagline}</p>
+             <p>{this.state.singleMovie.overview}</p>
+             <Link to="/">
+               <button >GO BACK HOME</button>
+             </Link>
+           </div>
+       } else if (this.state.error) {
+         findSingleMovie = <p className="Error">{this.state.error}</p>
+       } else {
+         findSingleMovie = <p>Loading...</p>
+       }
+ 
+       return(
+         <>
+         {findSingleMovie}
+         </>
+       )
+     }
+    
+  }
 export default SelectedMovie;
+
