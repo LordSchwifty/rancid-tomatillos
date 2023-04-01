@@ -42,7 +42,7 @@ componentDidMount() {
     <div className="App">
         <h1>Rancid Tomatillos</h1>
         <Switch>
-        <Route exact path="/rancid-tomatillos" render={() => <Movie movieData={this.state.movies} error={this.state.error}/>}/>
+        <Route exact path="/rancid-tomatillos/" render={() => <Movie movieData={this.state.movies} error={this.state.error}/>}/>
         <Route exact path="/rancid-tomatillos/:id" render={({match}) => {
          return <SelectedMovie id={match.params.id} />
         }}
