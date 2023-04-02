@@ -1,4 +1,4 @@
-describe('Individual view flows', () => {
+describe('Single Movie View', () => {
     beforeEach(() => {
       cy.visit('https://lordschwifty.github.io/rancid-tomatillos');
       });
