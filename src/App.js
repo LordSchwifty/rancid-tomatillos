@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Error from '../src/Error'
 import movieData from './movieData.js'
 import React, { Component } from 'react'
 import Movie from "./Movie";
@@ -40,13 +41,17 @@ componentDidMount() {
   render(){
   return (
     <div className="App">
-        <h1>Rancid Tomatillos</h1>
+        <h1>ℝ𝕒𝕟𝕔𝕚𝕕 𝕋𝕠𝕞𝕒𝕥𝕚𝕝𝕝𝕠𝕤</h1>
         <Switch>
         <Route exact path="/rancid-tomatillos" render={() => <Movie movieData={this.state.movies} error={this.state.error}/>}/>
         <Route exact path="/rancid-tomatillos/:id" render={({match}) => {
          return <SelectedMovie id={match.params.id} />
         }}
         />
+        <Route path="/rancid-tomatillos/*">
+        <Error />
+        </Route>
+        <Route path="*" render={() => <Error />} />
         </Switch>
     </div>
   );

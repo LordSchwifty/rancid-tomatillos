@@ -10,7 +10,7 @@ describe('Single Movie View', () => {
         .contains("Black Adam").click()
         .get('div[class="backdrop"]')
         .children().should('have.length', 1)
-        .children().should('have.length', 4)
+        .children().should('have.length', 7)
     })
     it('should take us back home after home button click', () => {
         cy.get('div[class="movie-container"]')
