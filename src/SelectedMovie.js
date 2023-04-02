@@ -41,6 +41,9 @@ let singleDetails;
              <h3>{this.state.singleMovie.title}</h3>
              <p>{this.state.singleMovie.tagline}</p>
              <p>{this.state.singleMovie.overview}</p>
+             <p>Release Date: {this.state.singleMovie.release_date}</p>
+            <p>Average Rating: {this.state.singleMovie.average_rating}/10</p>
+            <p>Genres: {this.state.singleMovie.genres.join(", ")}</p>
              <Link to="/rancid-tomatillos">
                <button >GO BACK HOME</button>
              </Link>

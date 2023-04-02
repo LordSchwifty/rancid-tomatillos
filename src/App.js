@@ -48,6 +48,9 @@ componentDidMount() {
          return <SelectedMovie id={match.params.id} />
         }}
         />
+        <Route path="/rancid-tomatillos/*">
+        <Error />
+        </Route>
         <Route path="*" render={() => <Error />} />
         </Switch>
     </div>
