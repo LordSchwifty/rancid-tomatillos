@@ -3,7 +3,7 @@ describe('homepage', () => {
      cy.visit('https://lordschwifty.github.io/rancid-tomatillos')
     })
     it('should show title', () => {
-     cy.contains('h1','Rancid Tomatillos')
+     cy.contains('h1','ℝ𝕒𝕟𝕔𝕚𝕕 𝕋𝕠𝕞𝕒𝕥𝕚𝕝𝕝𝕠𝕤')
     })
     it('should show all movies', () => {
      cy.get('div[class=movie-container]')
